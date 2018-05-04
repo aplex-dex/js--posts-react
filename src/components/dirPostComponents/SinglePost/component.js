@@ -1,24 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Card, {
-  CardHeader,
-  CardMedia,
-  CardContent,
-  CardActions,
-} from 'material-ui/Card';
-import Avatar from 'material-ui/Avatar';
+import Card, { CardMedia, CardContent, CardActions } from 'material-ui/Card';
 import IconButton from 'material-ui/IconButton';
 import Typography from 'material-ui/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ButtonBase from 'material-ui/ButtonBase';
 
-import styles from './styles';
+import CommentsList from '@/components/dirPostComponents/Comments/CommentsList';
+import AvatarPart from '@/components/AvatarPart';
+import { comments } from '@/components/dirPostComponents/Comments/CommentsList/index.stories';
 
-const RecipeReviewCard = props => {
-  const { classes, image, userName, title, body, id, click } = props;
+const SinglePost = props => {
+  const { classes, image, user, title, body, selectPost } = props;
 
   const imagePlace = image && (
     <CardMedia className={classes.media} image={image} title={title}>
@@ -40,32 +34,20 @@ const RecipeReviewCard = props => {
   return (
     <div>
       <Card className={classes.card}>
-        <CardHeader
-          avatar={
-            <Avatar aria-label="Recipe" className={classes.avatar}>
-              R
-            </Avatar>
-          }
-          action={
-            <IconButton>
-              <MoreVertIcon />
-            </IconButton>
-          }
-          title={userName}
-          subheader="September 14, 2016"
-        />
         <ButtonBase
           component="div"
           className={classes.cardContent}
-          onClick={() => click(id)}
+          onClick={() => selectPost(null)}
         >
           {imagePlace}
+          <AvatarPart userName={user.name} />
           <CardContent>
             {titlePlace}
             <Typography component="p">{body}</Typography>
           </CardContent>
         </ButtonBase>
         <CardActions className={classes.actions} disableActionSpacing>
+          <CommentsList data={comments} />
           <IconButton aria-label="Add to favorites">
             <FavoriteIcon />
           </IconButton>
@@ -78,20 +60,18 @@ const RecipeReviewCard = props => {
   );
 };
 
-RecipeReviewCard.propTypes = {
+SinglePost.propTypes = {
   classes: PropTypes.object.isRequired,
   image: PropTypes.string,
-  userName: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
   title: PropTypes.string,
   body: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-  click: PropTypes.func,
+  selectPost: PropTypes.func.isRequired,
 };
 
-RecipeReviewCard.defaultProps = {
-  image: 'https://picsum.photos/1366/768/?random',
+SinglePost.defaultProps = {
+  image: '',
   title: '',
-  click: () => {},
 };
 
-export default withStyles(styles)(RecipeReviewCard);
+export default SinglePost;

@@ -1,5 +1,3 @@
-import red from 'material-ui/colors/red';
-
 export default theme => ({
   card: {},
   cardContent: {
@@ -9,14 +7,13 @@ export default theme => ({
   media: {
     position: 'relative',
     height: 0,
-    // 16:9
-    paddingTop: '56.25%',
+    paddingTop: '34.25%',
   },
   actions: {
     display: 'flex',
-  },
-  avatar: {
-    backgroundColor: red[500],
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+    paddingLeft: 24,
   },
   imageTitle: {
     ...theme.typography.subheading,
