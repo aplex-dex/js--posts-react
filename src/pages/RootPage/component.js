@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import BaseHeader from '@/components/BaseHeader';
+import MainHeader from '@/components/MainHeader';
 import PostsAll from '@/pages/PostsAll';
 import PostSingle from '@/pages/PostSingle';
 
@@ -17,7 +17,7 @@ class RootPage extends Component {
 
     return (
       <div className="App">
-        <BaseHeader title={title} />
+        <MainHeader title={title} />
         <Page />
       </div>
     );

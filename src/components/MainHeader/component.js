@@ -7,7 +7,7 @@ import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
-const BaseHeader = ({ classes, title }) => (
+const MainHeader = ({ classes, title }) => (
   <div className={classes.root}>
     <AppBar position="static">
       <Toolbar>
@@ -27,9 +27,9 @@ const BaseHeader = ({ classes, title }) => (
   </div>
 );
 
-BaseHeader.propTypes = {
+MainHeader.propTypes = {
   classes: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
 };
 
-export default BaseHeader;
+export default MainHeader;
