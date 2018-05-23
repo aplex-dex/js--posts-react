@@ -11,7 +11,8 @@ export default {
   root: {
     display: 'flex',
     justifyContent: 'center',
-    padding: '0 96px',
+    paddingLeft: 96,
+    paddingRight: 96,
   },
   buttonLeftPlace: {
     ...buttonPlace,

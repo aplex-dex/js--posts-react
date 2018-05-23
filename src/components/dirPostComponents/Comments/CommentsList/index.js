@@ -1,7 +1,7 @@
 import { withStyles } from 'material-ui/styles';
 import { connect } from 'react-redux';
-import { reciveComments, createComment } from '@/redux/comments/actions';
 
+import { reciveComments, createComment } from '@/redux/comments/actions';
 import Component from './component';
 import styles from './styles';
 
