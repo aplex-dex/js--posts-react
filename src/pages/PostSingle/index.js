@@ -1,16 +1,18 @@
 import { connect } from 'react-redux';
 
-import { setcurrentPostId } from '@/redux/posts/actions';
+import { getCurrentPost, getCurrentPostId } from '@/redux/posts/selectors';
+import { getCurrentUser } from '@/redux/users/selectors';
+import { resetCurrentPostId } from '@/redux/posts/operations';
 import Component from './component';
 
-const mapStateToProps = ({ posts, users, currentPostId }) => ({
-  currentPostId,
-  post: posts[currentPostId],
-  user: users[posts[currentPostId].userId] || {},
+const mapStateToProps = state => ({
+  currentPostId: getCurrentPostId(state),
+  post: getCurrentPost(state),
+  user: getCurrentUser(state) || {},
 });
 
-const mapDispatchToProps = dispatch => ({
-  selectPost: postId => dispatch(setcurrentPostId(postId)),
-});
+const mapDispatchToProps = {
+  deselectPost: resetCurrentPostId,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Component);

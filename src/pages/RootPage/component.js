@@ -5,15 +5,10 @@ import MainHeader from '@/components/MainHeader';
 import PostsAll from '@/pages/PostsAll';
 import PostSingle from '@/pages/PostSingle';
 
-const pages = {
-  PostsAll,
-  PostSingle,
-};
-
 class RootPage extends Component {
   render() {
     const title = 'The Upsilon Times';
-    const Page = this.props.currentPostId ? pages.PostSingle : pages.PostsAll;
+    const Page = this.props.currentPostId ? PostSingle : PostsAll;
 
     return (
       <div className="App">
@@ -25,7 +20,7 @@ class RootPage extends Component {
 }
 
 RootPage.propTypes = {
-  currentPostId: PropTypes.string,
+  currentPostId: PropTypes.number,
 };
 
 RootPage.defaultProps = {

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CardList from '@/components/dirCardComponents/CardList';
-import Navigation from '@/components/dirCardComponents/Navigation';
+import CardList from './CardList';
+import Navigation from './Navigation';
 
 const AllPosts = ({ classes: { root } }) => (
   <div className={root}>

@@ -1,12 +1,5 @@
-import { objectsArrayToHash } from '@/utils';
-import { getAllUsers } from '@/redux/users/requests';
+import { createAction } from 'redux-actions';
 
-export const RECEIVE_USERS = 'RECEIVE_USERS';
+import { RECEIVE_USERS } from './types';
 
-const provideUsers = ({ data }) => ({
-  type: RECEIVE_USERS,
-  users: objectsArrayToHash(data),
-});
-
-export const reciveUsers = params => dispatch =>
-  getAllUsers(params).then(response => dispatch(provideUsers(response)));
+export const receiveUsers = createAction(RECEIVE_USERS);

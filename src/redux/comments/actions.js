@@ -1,28 +1,6 @@
-import { objectsArrayToHash } from '@/utils';
-import {
-  getPostsComments,
-  createPostsComments,
-} from '@/redux/comments/requests';
+import { createAction } from 'redux-actions';
 
-export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
-export const CREATE_COMMENT = 'CREATE_COMMENT';
+import { RECEIVE_COMMENTS, CREATE_COMMENT } from './types';
 
-const provideComments = ({ data }) => ({
-  type: RECEIVE_COMMENTS,
-  comments: objectsArrayToHash(data),
-});
-
-const provideCreteComment = ({ data }) => ({
-  type: CREATE_COMMENT,
-  comment: objectsArrayToHash([data]),
-});
-
-export const reciveComments = postId => dispatch =>
-  getPostsComments(postId).then(response =>
-    dispatch(provideComments(response)),
-  );
-
-export const createComment = params => dispatch =>
-  createPostsComments(params).then(response =>
-    dispatch(provideCreteComment(response)),
-  );
+export const receiveComments = createAction(RECEIVE_COMMENTS);
+export const createComment = createAction(CREATE_COMMENT);

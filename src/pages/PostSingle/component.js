@@ -1,24 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SinglePost from '@/components/dirPostComponents/SinglePost';
+import SinglePost from './SinglePost';
 
-const PostPage = ({ post, currentPostId, user, selectPost }) => (
+const PostSingle = ({ post, currentPostId, user, deselectPost }) => (
   <SinglePost
     currentPostId={currentPostId}
     image={post.image}
     title={post.title}
     body={post.body}
     user={user}
-    selectPost={selectPost}
+    deselectPost={deselectPost}
   />
 );
 
-PostPage.propTypes = {
-  currentPostId: PropTypes.string.isRequired,
+PostSingle.propTypes = {
+  currentPostId: PropTypes.number.isRequired,
   post: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
-  selectPost: PropTypes.func.isRequired,
+  deselectPost: PropTypes.func.isRequired,
 };
 
-export default PostPage;
+export default PostSingle;

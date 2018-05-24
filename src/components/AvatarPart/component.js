@@ -1,31 +1,38 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Avatar from 'material-ui/Avatar';
 import { CardHeader } from 'material-ui/Card';
 
-const AvatarPart = ({ classes, action, subheader, userName }) => (
-  <CardHeader
-    avatar={
-      <Avatar aria-label="Recipe" className={classes.avatar}>
-        {userName[0]}
-      </Avatar>
-    }
-    action={action}
-    title={userName}
-    subheader={subheader}
-  />
-);
+class AvatarPart extends PureComponent {
+  render() {
+    const { classes, action, subheader, user } = this.props;
+    const { name } = user;
+
+    return (
+      <CardHeader
+        avatar={
+          <Avatar aria-label="Recipe" className={classes.avatar}>
+            {name && name[0]}
+          </Avatar>
+        }
+        action={action}
+        title={name}
+        subheader={subheader}
+      />
+    );
+  }
+}
 
 AvatarPart.propTypes = {
   classes: PropTypes.object.isRequired,
   action: PropTypes.node,
   subheader: PropTypes.string,
-  userName: PropTypes.string,
+  user: PropTypes.object,
 };
 
 AvatarPart.defaultProps = {
   subheader: 'September 14, 2016',
-  userName: '',
+  user: {},
   action: '',
 };
 
