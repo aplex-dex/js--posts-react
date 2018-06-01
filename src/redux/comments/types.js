@@ -1,2 +1,5 @@
+import { makeTypes, requestOperations } from '@/utils';
+
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
-export const CREATE_COMMENT = 'CREATE_COMMENT';
+
+export const COMMENT_ADD = makeTypes('COMMENT', 'ADD', requestOperations);
