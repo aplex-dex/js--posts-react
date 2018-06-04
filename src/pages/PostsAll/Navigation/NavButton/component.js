@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'material-ui/Button';
-import Icon from 'material-ui/Icon';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
 import classNames from 'classnames';
 
 const NavButton = ({ classes, isVisable, isLeftButton, onClick }) => {
