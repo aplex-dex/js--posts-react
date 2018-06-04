@@ -1,6 +1,8 @@
 import { createAction } from 'redux-actions';
 
-import { RECEIVE_COMMENTS, CREATE_COMMENT } from './types';
+import { makeActions } from '@/utils';
+import { RECEIVE_COMMENTS, COMMENT_ADD } from './types';
 
 export const receiveComments = createAction(RECEIVE_COMMENTS);
-export const createComment = createAction(CREATE_COMMENT);
+
+export const commentAdd = makeActions(COMMENT_ADD);

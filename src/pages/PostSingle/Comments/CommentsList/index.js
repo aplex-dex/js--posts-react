@@ -1,10 +1,8 @@
 import { withStyles } from 'material-ui/styles';
 import { connect } from 'react-redux';
 
-import {
-  sendReceiveComments,
-  sendCreateComment,
-} from '@/redux/comments/operations';
+import { sendReceiveComments } from '@/redux/comments/operations';
+import { commentAdd } from '@/redux/comments/actions';
 import { getComments } from '@/redux/comments/selectors';
 import { getCurrentPostId } from '@/redux/posts/selectors';
 import Component from './component';
@@ -26,7 +24,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     data,
     loadComments: () => dispatch(sendReceiveComments(currentPostId)),
     createComment: params =>
-      dispatch(sendCreateComment({ ...params, postId: currentPostId })),
+      dispatch(commentAdd.requested({ ...params, postId: currentPostId })),
   };
 };
 
