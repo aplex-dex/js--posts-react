@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { CardMedia, CardContent } from 'material-ui/Card';
-import Typography from 'material-ui/Typography';
-import ButtonBase from 'material-ui/ButtonBase';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import ButtonBase from '@material-ui/core/ButtonBase';
 import classNames from 'classnames';
 
 class PostContent extends PureComponent {

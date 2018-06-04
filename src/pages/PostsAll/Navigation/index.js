@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 
 import { receivePostsPage } from '@/redux/posts/operations';
 import { getPagination } from '@/redux/posts/selectors';
